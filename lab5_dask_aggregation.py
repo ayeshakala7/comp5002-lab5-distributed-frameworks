@@ -7,7 +7,7 @@ import numpy as np
 import os
 
 # Configuration (adjust based on your machine's memory and cores)
-NUM_ROWS = 50_000_000            # Total number of rows in the DataFrame
+NUM_ROWS = 5_000_000          # Total number of rows in the DataFrame
 NUM_PARTITIONS = os.cpu_count() or 4  # Dask DataFrame partitions (often ~ number of cores)
 NUM_UNIQUE_IDS = 1_000           # Number of unique IDs to group by
 
