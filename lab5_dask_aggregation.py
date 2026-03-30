@@ -38,16 +38,15 @@ def run_parallel_dask_aggregation(df, npartitions):
     result = None
     start_time = time.perf_counter()
 
-    # --- TODO: Task 2 - Implement Dask aggregation ---
     # 1) Convert Pandas -> Dask DataFrame
-    # ddf = dd.from_pandas(df, npartitions=npartitions)
-    #
-    # 2) Apply the same groupby-mean on Dask (lazy result)
-    # dask_result_lazy = ddf.groupby('id')['value'].mean()
-    #
-    # 3) Trigger computation and return a Pandas Series
-    # result = dask_result_lazy.compute()
-    # --- End TODO ---
+    ddf = dd.from_pandas(df, npartitions=npartitions)
+
+    # ) Apply the same groupby-mean on Dask (lazy result)
+    dask_result_lazy = ddf.groupby('id')['value'].mean()
+
+    # 3) trigger computation and return a Pandas Series
+    result = dask_result_lazy.compute()
+
 
     # Placeholder to keep starter runnable until TODO is completed
     if result is None:
